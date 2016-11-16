@@ -11,8 +11,10 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     android:gravity="center"
+    tools:context="com.main.justthetip.splash_page"
+    android:orientation="vertical"
+    >
 
-    tools:context="com.main.justthetip.splash_page">
 
 
     <TextView
@@ -23,6 +25,16 @@
         android:textSize="50dp"
 
         android:textColor="#000000"
+         />
+
+    <ImageView
+
+        android:layout_height="90dp"
+        android:layout_width="wrap_content"
+        android:src="@drawable/tipsplit"
+        android:gravity="center"
+
+
         />
 
 </LinearLayout>
