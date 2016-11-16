@@ -11,7 +11,8 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.main.justthetip.MainActivity">
+    tools:context="com.main.justthetip.MainActivity"
+    android:weightSum="1">
 
 
 
@@ -52,7 +53,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/amount"
-            android:hint="0"
+            android:hint="$0.00"
             android:inputType="numberDecimal"/>
         <Button
             android:layout_width="wrap_content"
@@ -74,7 +75,7 @@
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:id="@+id/percentage"
-            android:hint="0"
+            android:hint="0%"
             android:inputType="numberDecimal"/>
         <Button
             android:layout_width="wrap_content"
@@ -89,8 +90,27 @@
         android:id="@+id/editText" />
 
     <EditText
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:background="#ffffff"
+        android:id="@+id/editText3"
+        android:layout_weight="0.27" />
+
+    <EditText
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Each Person Pays:"/>
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:inputType="numberDecimal"
+        android:ems="10"
+        android:background="#ffffff"
+        android:id="@+id/editText5"
+        android:layout_weight="0.15" />
+
 
 </LinearLayout>
