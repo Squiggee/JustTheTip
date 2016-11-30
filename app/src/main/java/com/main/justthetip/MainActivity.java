@@ -9,9 +9,15 @@ import android.view.MenuItem;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
+    Button add;
+    Button subtract;
+    EditText value;
+    int counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +34,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+
+        value = (EditText) findViewById(R.id.people);
+        subtract = (Button)findViewById(R.id.subtract_people);
+        subtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                counter--;
+                value.setText(String.valueOf(counter)); // create an
+            }
+        });
 
     }
 
@@ -54,5 +70,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void subtractPeople(View view)
+    {
+        value.setText(1);
     }
 }
