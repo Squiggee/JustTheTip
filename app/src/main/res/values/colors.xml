@@ -1,6 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!--Main -->
     <color name="colorPrimary">#54A589</color>
     <color name="colorPrimaryDark">#0A6243 </color>
     <color name="colorAccent">#ff404a</color>
+
+   <!--Gray Scale -->
+    <color name="colorPrimary1">#99928e</color>
+    <color name="colorPrimaryDark1">#64646b</color>
+    <color name="colorAccent1">#617974</color>
+
+   <!--scoobydoo -->
+    <color name="colorPrimary2">#ff7319</color>
+    <color name="colorPrimaryDark2">#3c38f4</color>
+    <color name="colorAccent2">#aefc18</color>
+
+    <!--easter-->
+    <color name="colorPrimary3">#ff0d7f</color>
+    <color name="colorPrimaryDark3">#0dffe5</color>
+    <color name="colorAccent3">#ffe50d</color>
+
+    <!--joker -->
+    <color name="colorPrimary4">#7314c0</color>
+    <color name="colorPrimaryDark4">#66e909</color>
+    <color name="colorAccent4">#ffaf0a</color>
+
+    <!--batman -->
+    <color name="colorPrimary5">#676748</color>
+    <color name="colorPrimaryDark5">#000000</color>
+    <color name="colorAccent5">#efef00</color>
+
 </resources>
