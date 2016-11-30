@@ -1,0 +1,4 @@
+JustTheTip
+----------
+
+Calculates the tip
