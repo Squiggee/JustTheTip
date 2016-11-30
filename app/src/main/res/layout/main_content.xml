@@ -4,7 +4,7 @@
     android:id="@+id/activity_main"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:background="@color/colorPrimary"
+    android:background="@color/colorPrimary5"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -16,13 +16,13 @@
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:theme="@style/AppTheme5.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary" />
+            android:background="@color/colorPrimary5" />
 
     </android.support.design.widget.AppBarLayout>
 
@@ -111,7 +111,7 @@
         android:id="@+id/editText" />
 
     <EditText
-        android:layout_width="150dp"
+        android:layout_width="235dp"
         android:inputType="numberDecimal"
         android:ems="10"
         android:background="#ffffff"
@@ -130,7 +130,7 @@
         android:background="#ffffff"
         android:id="@+id/editText5"
         android:layout_weight="0.15"
-        android:layout_width="150dp"
+        android:layout_width="235dp"
         android:layout_height="16dp" />
 
 
