@@ -22,7 +22,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Button add;
     Button subtract;
     EditText value;
-    int counter = 0;
+    int people_counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +45,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         subtract.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                counter--;
-                value.setText(String.valueOf(counter)); // create an
+                people_counter--;
+                value.setText(String.valueOf(people_counter)); // create an
+            }
+        });
+
+        add = (Button) findViewById(R.id.add_people);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                people_counter++;
+                value.setText(String.valueOf(people_counter));
             }
         });
 

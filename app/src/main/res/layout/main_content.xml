@@ -37,8 +37,9 @@
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
+            android:id="@+id/subtract_people"
             android:text="-" />
-        <EditText
+         <EditText
             android:layout_width="74dp"
             android:layout_height="match_parent"
             android:id="@+id/people"
@@ -49,7 +50,7 @@
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
-            android:id="@+id/subtract_people"
+            android:id="@+id/add_people"
             android:layout_marginStart="0dp"
             android:text="+"
             android:layout_marginLeft="0dp" />

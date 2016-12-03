@@ -54,6 +54,10 @@
         <item name="colorPrimary">@color/colorPrimary5</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark5</item>
         <item name="colorAccent">@color/colorAccent5</item>
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="android:windowFullscreen">true</item>
+        <item name="android:windowContentOverlay">@null</item>
 
 
     </style>
