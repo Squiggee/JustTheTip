@@ -1,5 +1,6 @@
 package com.main.justthetip;
 
+import android.content.Intent;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -11,6 +12,8 @@ import android.support.design.widget.NavigationView;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
@@ -20,6 +23,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     EditText bill_amount;
     int people_counter = 0;
     double bill_counter = 0;
+    EditText percentage_value;
+    Button add_percentage;
+    Button subtract_percentage;
+    int percentage_counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,7 +79,26 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 bill_counter += 5;
                 bill_amount.setText(String.valueOf(bill_counter));
             }
-        }  );
+        });
+
+        percentage_value = (EditText) findViewById(R.id.percentage_value);
+        add_percentage = (Button) findViewById(R.id.add_percentage);
+        subtract_percentage = (Button) findViewById(R.id.subtract_percentage);
+
+        add_percentage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                percentage_counter++;
+                percentage_value.setText(String.valueOf(percentage_counter));
+            }
+        });
+        subtract_percentage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                percentage_counter--;
+                percentage_value.setText(String.valueOf(percentage_counter));
+            }
+        });
 
 
     }
@@ -89,8 +115,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         } else if (id == R.id.nav_slideshow) {
 
-//        } else if (id == R.id.nav_settings) {
-//            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.nav_settings) {
+            //Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -102,8 +128,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    public void subtractPeople(View view)
+    public void calculate(View view)
     {
         people_Value.setText(1);
+        Button calculate = (Button) findViewById(R.id.calculate);
+        TextView grandTotal = (TextView) findViewById(R.id.grand_total);
+
     }
 }

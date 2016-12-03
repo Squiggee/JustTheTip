@@ -101,26 +101,37 @@
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
+            android:id="@+id/subtract_percentage"
             android:text="-" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/percentage"
+            android:id="@+id/percentage_value"
             android:hint="0%"
             android:layout_marginStart="20dp"
-            android:inputType="numberDecimal"/>
+            android:inputType="numberDecimal"
+            android:layout_marginLeft="20dp" />
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="40dp"
-            android:text="+"/>
+            android:id="@+id/add_percentage"
+            android:text="+"
+            android:layout_marginLeft="40dp" />
     </LinearLayout>
 
-    <EditText
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Calculate"
+        android:id="@+id/calculate"
+        android:onClick="calculate"/>
+
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Grand Total"
-        android:id="@+id/editText" />
+        android:id="@+id/grand_total" />
 
     <EditText
         android:layout_width="235dp"
