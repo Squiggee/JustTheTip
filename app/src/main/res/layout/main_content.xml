@@ -54,6 +54,7 @@
             android:layout_marginStart="0dp"
             android:text="+"
             android:layout_marginLeft="0dp" />
+
     </LinearLayout>
 
     <TextView
@@ -67,7 +68,10 @@
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
-            android:text="-" />
+            android:text="-"
+            android:id="@+id/subtract_bill"
+            android:layout_marginStart="0dp"
+            android:layout_marginLeft="0dp" />
         <EditText
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
@@ -81,7 +85,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
             android:text="+"
-            android:layout_marginLeft="20dp" />
+            android:layout_marginLeft="20dp"
+            android:id="@+id/add_bill"
+           />
     </LinearLayout>
 
     <TextView
