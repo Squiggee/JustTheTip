@@ -1,9 +1,6 @@
 package com.main.justthetip;
 
-import android.app.ActivityManager;
-import android.support.annotation.NonNull;
-import android.support.v4.app.ActivityManagerCompat;
-import android.support.v4.app.FragmentManager;
+import android.content.Intent;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -13,10 +10,23 @@ import android.view.MenuItem;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
+    Button add;
+    Button subtract;
+    EditText people_Value;
+    EditText bill_amount;
+    int people_counter = 0;
+    double bill_counter = 0;
+    EditText percentage_value;
+    Button add_percentage;
+    Button subtract_percentage;
+    int percentage_counter = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +44,63 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        people_Value = (EditText) findViewById(R.id.people);
+        subtract = (Button)findViewById(R.id.subtract_people);
+        subtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                people_counter--;
+                people_Value.setText(String.valueOf(people_counter)); // create an
+            }
+        });
+
+        add = (Button) findViewById(R.id.add_people);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                people_counter++;
+                people_Value.setText(String.valueOf(people_counter));
+            }
+        });
+
+        bill_amount = (EditText) findViewById(R.id.amount);
+        subtract = (Button)findViewById(R.id.subtract_bill);
+        subtract.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bill_counter -= 5;
+                bill_amount.setText(String.valueOf(bill_counter)); // create an
+            }
+        });
+        add = (Button) findViewById(R.id.add_bill);
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                bill_counter += 5;
+                bill_amount.setText(String.valueOf(bill_counter));
+            }
+        });
+
+        percentage_value = (EditText) findViewById(R.id.percentage_value);
+        add_percentage = (Button) findViewById(R.id.add_percentage);
+        subtract_percentage = (Button) findViewById(R.id.subtract_percentage);
+
+        add_percentage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                percentage_counter++;
+                percentage_value.setText(String.valueOf(percentage_counter));
+            }
+        });
+        subtract_percentage.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                percentage_counter--;
+                percentage_value.setText(String.valueOf(percentage_counter));
+            }
+        });
+
+
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -49,7 +116,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         } else if (id == R.id.nav_slideshow) {
 
         } else if (id == R.id.nav_settings) {
-            Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
+            //Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
         } else if (id == R.id.nav_share) {
 
         } else if (id == R.id.nav_send) {
@@ -61,5 +128,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    public void calculate(View view)
+    {
+        people_Value.setText(1);
+        Button calculate = (Button) findViewById(R.id.calculate);
+        TextView grandTotal = (TextView) findViewById(R.id.grand_total);
 
+    }
 }
