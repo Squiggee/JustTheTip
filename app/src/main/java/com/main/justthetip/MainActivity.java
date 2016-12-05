@@ -55,6 +55,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 people_counter--;
+                if(people_counter < 0)
+                {
+                    people_counter = 0;
+                }
                 people_Value.setText(String.valueOf(people_counter)); // create an
             }
         });
@@ -74,6 +78,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 bill_counter -= 5;
+                if(bill_counter < 0)
+                {
+                    bill_counter =0;
+                }
                 bill_amount.setText(String.valueOf(bill_counter)); // create an
             }
         });
@@ -101,6 +109,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onClick(View view) {
                 percentage_counter--;
+                if (percentage_counter < 0)
+                {
+                    percentage_counter = 0;
+                }
                 percentage_value.setText(String.valueOf(percentage_counter));
             }
         });
