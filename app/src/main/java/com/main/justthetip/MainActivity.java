@@ -21,12 +21,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Button subtract;
     EditText people_Value;
     EditText bill_amount;
+    EditText each_pay_view;
+    EditText grandTotalView;
     int people_counter = 0;
     double bill_counter = 0;
     EditText percentage_value;
     Button add_percentage;
     Button subtract_percentage;
-    int percentage_counter = 0;
+    double percentage_counter = 0;
+    Button calculate;
+    double grand_total = 0;
+    double each_pay = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,6 +104,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 percentage_value.setText(String.valueOf(percentage_counter));
             }
         });
+        calculate = (Button)findViewById(R.id.calculate);
+        each_pay_view = (EditText) findViewById(R.id.each_person_edit);
+        grandTotalView = (EditText) findViewById(R.id.grand_total_view);
+        calculate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                double percentageEq = (percentage_counter / 100) +1;
+                grand_total = (bill_counter * percentageEq);
+                grandTotalView.setText(String.valueOf(grand_total));
+                grand_total /= people_counter;
+                each_pay_view.setText(String.valueOf(grand_total));
+            }
+        });
 
 
     }
@@ -109,18 +127,12 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_settings) {
-            //Toast.makeText(this, "Settings", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.profile) {
+            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.appearance) {
+            Toast.makeText(this, "Change Appearance", Toast.LENGTH_SHORT).show();
+        } else if (id == R.id.version) {
+            Toast.makeText(this, "Version", Toast.LENGTH_SHORT).show();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
