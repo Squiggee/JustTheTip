@@ -138,11 +138,11 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:background="#ffffff"
-        android:id="@+id/editText3"
+        android:id="@+id/grand_total_view"
         android:layout_weight="0.27"
         android:layout_height="0dp" />
 
-    <EditText
+    <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Each Person Pays:"/>
@@ -151,7 +151,7 @@
         android:inputType="numberDecimal"
         android:ems="10"
         android:background="#ffffff"
-        android:id="@+id/editText5"
+        android:id="@+id/each_person_edit"
         android:layout_weight="0.15"
         android:layout_width="235dp"
         android:layout_height="16dp" />
