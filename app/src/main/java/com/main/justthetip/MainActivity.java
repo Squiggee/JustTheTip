@@ -6,10 +6,12 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.MenuItem;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.os.Bundle;
+import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -23,15 +25,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     EditText bill_amount;
     EditText each_pay_view;
     EditText grandTotalView;
-    int people_counter = 0;
-    double bill_counter = 0;
+    int people_counter;
+    double bill_counter;
     EditText percentage_value;
     Button add_percentage;
     Button subtract_percentage;
-    double percentage_counter = 0;
+    double percentage_counter;
     Button calculate;
-    double grand_total = 0;
-    double each_pay = 0;
+    double grand_total;
+    double each_pay;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -130,6 +132,80 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
+        /* percentage_value, bill_amount people_Value*/
+
+        //percentage_value.setOnEditorActionListener(new TextView.onEditorActionListener());
+        percentage_value.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_NEXT || i == EditorInfo.IME_ACTION_DONE) {
+                    String something = percentage_value.getText().toString();
+                    percentage_counter = Double.parseDouble(something);
+                    percentage_value.setText(something);
+                    return true;
+                }
+                return false;
+            }
+        });
+        percentage_value.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b) {
+                    String something = percentage_value.getText().toString();
+                    percentage_counter = Double.parseDouble(something);
+                    percentage_value.setText(something);
+                }
+            }
+        });
+
+        bill_amount.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_NEXT || i == EditorInfo.IME_ACTION_DONE) {
+                    String something = bill_amount.getText().toString();
+                    bill_counter = Double.parseDouble(something);
+                    bill_amount.setText(something);
+                    return true;
+                }
+                return false;
+            }
+
+        });
+        bill_amount.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if(!b) {
+                    String something = bill_amount.getText().toString();
+                    bill_counter = Double.parseDouble(something);
+                    bill_amount.setText(something);
+                }
+            }
+        });
+
+        people_Value.setOnEditorActionListener(new TextView.OnEditorActionListener() {
+            @Override
+            public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
+                if (i == EditorInfo.IME_ACTION_NEXT || i == EditorInfo.IME_ACTION_DONE) {
+                    String something = people_Value.getText().toString();
+                    people_counter = Integer.parseInt(something);
+                    people_Value.setText(something);
+                    return true;
+                }
+                return false;
+            }
+
+        });
+        people_Value.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean b) {
+                if (!b) {
+                    String something = people_Value.getText().toString();
+                    people_counter = Integer.parseInt(something);
+                    people_Value.setText(something);
+
+                }
+            }
+        });
 
     }
 
@@ -152,11 +228,4 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    public void calculate(View view)
-    {
-        people_Value.setText(1);
-        Button calculate = (Button) findViewById(R.id.calculate);
-        TextView grandTotal = (TextView) findViewById(R.id.grand_total);
-
-    }
 }
