@@ -122,6 +122,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 percentage_value.setText(String.valueOf(percentage_counter));
             }
         });
+
         calculate = (Button)findViewById(R.id.calculate);
         each_pay_view = (EditText) findViewById(R.id.each_person_edit);
         grandTotalView = (EditText) findViewById(R.id.grand_total_view);
@@ -130,9 +131,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View view) {
                 double percentageEq = (percentage_counter / 100) +1;
                 grand_total = (bill_counter * percentageEq);
-                grandTotalView.setText(money.getSymbol() + String.valueOf(grand_total));
+                grandTotalView.setText(money.getSymbol() + String.valueOf(String.format("%.2f",grand_total)));
                 grand_total /= people_counter;
-                each_pay_view.setText(money.getSymbol() + String.valueOf(grand_total));
+                each_pay_view.setText(money.getSymbol() + String.valueOf(String.format("%.2f",grand_total)));
             }
         });
 
@@ -180,10 +181,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public void onFocusChange(View view, boolean hasFocus) {
                 if(!hasFocus) {
+                    // Get value currently in bill amount as a string
                     String fieldValueAsString = bill_amount.getText().toString();
+                    // Make sure it's not empty or set to null
                     if (!fieldValueAsString.isEmpty()) {
+                        // Check if there's a $ sign before number, if so strip it off
+                        for (int i = 0; i < fieldValueAsString.length(); i++) {
+                            char currentChar = fieldValueAsString.charAt(i);
+                            if (Character.isDigit(currentChar)) {
+                                fieldValueAsString = fieldValueAsString.substring(i);
+                                break;
+                            }
+                        }
+                        //String stripDollarSign = fieldValueAsString.substring(1); // removes dollar sign
                         bill_counter = Double.parseDouble(fieldValueAsString);
-                        bill_amount.setText(money.getSymbol() + String.format("%.2f", fieldValueAsString));
+                        bill_amount.setText(money.getSymbol() + String.format("%.2f", bill_counter));
                     }
                 }
             }
