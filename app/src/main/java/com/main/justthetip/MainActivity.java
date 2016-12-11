@@ -295,6 +295,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
+    /**
+     * This method will take a string and strip away any non-digit characters in front of it
+     * @param stringToParse
+     * @return
+     */
     private String stripCharacter(String stringToParse)
     {
         if (!stringToParse.isEmpty()) {
@@ -307,6 +312,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         }
         else {
+            // If we're here, that means nothing has been set so just return 0
             stringToParse = "0";
         }
         return stringToParse;
