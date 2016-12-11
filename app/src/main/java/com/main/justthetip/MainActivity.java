@@ -57,6 +57,10 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+        /**
+         * Rest of the Code just adds a bunch of listeners
+         */
+
         people_Value = (EditText) findViewById(R.id.people);
         subtract = (Button)findViewById(R.id.subtract_people);
         subtract.setOnClickListener(new View.OnClickListener() {
@@ -123,17 +127,58 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             }
         });
 
-        calculate = (Button)findViewById(R.id.calculate);
+        Button badTip = (Button) findViewById(R.id.bad_tip_button);
+        badTip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                percentage_counter = 20;
+                percentage_value.setText("%" + String.valueOf(percentage_counter));
+            }
+        });
+
+        Button goodTip = (Button) findViewById(R.id.good_tip_button);
+        goodTip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                percentage_counter = 25;
+                percentage_value.setText("%" + String.valueOf(percentage_counter));
+            }
+        });
+
+        Button greatTip = (Button) findViewById(R.id.great_tip_button);
+        greatTip.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                percentage_counter = 30;
+                percentage_value.setText("%" + String.valueOf(percentage_counter));
+            }
+        });
+
         each_pay_view = (EditText) findViewById(R.id.each_person_edit);
         grandTotalView = (EditText) findViewById(R.id.grand_total_view);
+
+        calculate = (Button)findViewById(R.id.calculate);
         calculate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                double percentageEq = (percentage_counter / 100) +1;
+                double percentageEq = 0;
+                try {
+                    // Get and save all field values
+                    percentage_counter = Double.parseDouble(stripCharacter(percentage_value.getText().toString()));
+                    bill_counter = Double.parseDouble(stripCharacter(bill_amount.getText().toString()));
+                    people_counter = Integer.parseInt(stripCharacter(people_Value.getText().toString()));
+                }
+                catch (Exception e) {
+                    throw e;
+                }
+
+                if (!(percentage_counter == 0))
+                    percentageEq = (percentage_counter / 100) +1;
+
                 grand_total = (bill_counter * percentageEq);
                 grandTotalView.setText(money.getSymbol() + String.valueOf(String.format("%.2f",grand_total)));
-                grand_total /= people_counter;
-                each_pay_view.setText(money.getSymbol() + String.valueOf(String.format("%.2f",grand_total)));
+                double eachPersonAmount = (grand_total == 0) ? 0 : grand_total / people_counter;
+                each_pay_view.setText(money.getSymbol() + String.valueOf(String.format("%.2f",eachPersonAmount)));
             }
         });
 
@@ -142,9 +187,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             @Override
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == EditorInfo.IME_ACTION_NEXT || i == EditorInfo.IME_ACTION_DONE) {
-                    String something = percentage_value.getText().toString();
-                    percentage_counter = Double.parseDouble(something);
-                    percentage_value.setText(something);
+                    String fieldValueAsString = percentage_value.getText().toString();
+                    percentage_counter = Double.parseDouble(stripCharacter(fieldValueAsString));
+                    percentage_value.setText(fieldValueAsString);
                     return true;
                 }
                 return false;
@@ -156,7 +201,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 if (!hasFocus) {
                     String fieldValueAsString = percentage_value.getText().toString();
                     if (!fieldValueAsString.isEmpty()) {
-                        percentage_counter = Double.parseDouble(fieldValueAsString);
+                        percentage_counter = Double.parseDouble(stripCharacter(fieldValueAsString));
                         percentage_value.setText(fieldValueAsString);
                     }
                 }
@@ -168,8 +213,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             public boolean onEditorAction(TextView textView, int i, KeyEvent keyEvent) {
                 if (i == EditorInfo.IME_ACTION_NEXT || i == EditorInfo.IME_ACTION_DONE) {
                     String fieldValueAsString = bill_amount.getText().toString();
-                    bill_counter = Double.parseDouble(fieldValueAsString);
-                    bill_amount.setText(money.getSymbol() + String.format("%.2f",fieldValueAsString) );
+                    bill_counter = Double.parseDouble(stripCharacter(fieldValueAsString));
+                    bill_amount.setText(money.getSymbol() + String.format("%.2f", bill_counter) );
                     return true;
                 }
                 return false;
@@ -193,7 +238,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                                 break;
                             }
                         }
-                        //String stripDollarSign = fieldValueAsString.substring(1); // removes dollar sign
                         bill_counter = Double.parseDouble(fieldValueAsString);
                         bill_amount.setText(money.getSymbol() + String.format("%.2f", bill_counter));
                     }
@@ -236,18 +280,36 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     {
         // Handle navigation view item clicks here.
         int id = item.getItemId();
-
-        if (id == R.id.profile) {
-            Toast.makeText(this, "Profile", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.appearance) {
-            Toast.makeText(this, "Change Appearance", Toast.LENGTH_SHORT).show();
-        } else if (id == R.id.version) {
-            Toast.makeText(this, "Version", Toast.LENGTH_SHORT).show();
+        switch (id) {
+            case R.id.appearance:
+                break;
+            case R.id.version:
+                Intent i = new Intent(this, VersionActivity.class);
+                startActivity(i);
+                break;
+            default:
+                // I don't know
         }
-
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    private String stripCharacter(String stringToParse)
+    {
+        if (!stringToParse.isEmpty()) {
+            for (int i = 0; i < stringToParse.length(); i++) {
+                char currentChar = stringToParse.charAt(i);
+                if (Character.isDigit(currentChar)) {
+                    stringToParse = stringToParse.substring(i);
+                    break;
+                }
+            }
+        }
+        else {
+            stringToParse = "0";
+        }
+        return stringToParse;
     }
 
 }

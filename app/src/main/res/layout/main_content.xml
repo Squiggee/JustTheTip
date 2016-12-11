@@ -29,57 +29,65 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
         android:text="Number of People:"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
             android:id="@+id/subtract_people"
             android:text="-" />
-         <EditText
-            android:layout_width="74dp"
-            android:layout_height="match_parent"
-            android:id="@+id/people"
-            android:layout_marginStart="20dp"
-            android:hint="0"
-            android:inputType="numberDecimal"
-            android:layout_marginLeft="20dp" />
+
+        <EditText
+           android:layout_width="74dp"
+           android:layout_height="match_parent"
+           android:id="@+id/people"
+           android:layout_marginStart="20dp"
+           android:hint="0"
+           android:inputType="numberDecimal"
+           android:layout_marginLeft="20dp" />
+
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
             android:id="@+id/add_people"
-            android:layout_marginStart="0dp"
+            android:layout_marginStart="20dp"
             android:text="+"
-            android:layout_marginLeft="0dp" />
+            android:layout_marginLeft="20dp" />
 
     </LinearLayout>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Total Bill Amount:"/>
+        android:text="Total Bill Amount:"
+        android:layout_marginBottom="10dp"/>
 
     <LinearLayout
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="20dp">
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
             android:text="-"
             android:id="@+id/subtract_bill"
-            android:layout_marginStart="0dp"
-            android:layout_marginLeft="0dp" />
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp" />
+
         <EditText
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
+            android:layout_width="74dp"
+            android:layout_height="wrap_content"
             android:id="@+id/amount"
             android:hint="$0.00"
             android:layout_marginStart="20dp"
             android:inputType="numberDecimal"
             android:layout_marginLeft="20dp" />
+
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
@@ -103,21 +111,45 @@
             android:layout_height="wrap_content"
             android:id="@+id/subtract_percentage"
             android:text="-" />
+
         <EditText
-            android:layout_width="wrap_content"
+            android:layout_width="74dp"
             android:layout_height="match_parent"
             android:id="@+id/percentage_value"
             android:hint="0%"
             android:layout_marginStart="20dp"
             android:inputType="numberDecimal"
             android:layout_marginLeft="20dp" />
+
         <Button
             android:layout_width="74dp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="40dp"
+            android:layout_marginStart="20dp"
             android:id="@+id/add_percentage"
             android:text="+"
-            android:layout_marginLeft="40dp" />
+            android:layout_marginLeft="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp">
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bad_tip_button"
+            android:text="Bad"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/good_tip_button"
+            android:text="Good"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/great_tip_button"
+            android:text="Great"/>
     </LinearLayout>
 
     <Button
@@ -127,12 +159,6 @@
         android:id="@+id/calculate"
         android:onClick="calculate"/>
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Grand Total"
-        android:id="@+id/grand_total" />
-
     <EditText
         android:layout_width="235dp"
         android:inputType="numberDecimal"
@@ -141,6 +167,12 @@
         android:id="@+id/grand_total_view"
         android:layout_weight="0.27"
         android:layout_height="0dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Grand Total"
+        android:id="@+id/grand_total" />
 
     <TextView
         android:layout_width="wrap_content"

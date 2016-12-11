@@ -2,78 +2,26 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@color/colorPrimary5"
-    tools:context="com.main.justthetip.Version"
-    >
-
-    <!-- TODO: Update blank fragment layout -->
-
-
+    android:padding="60dp"
+    tools:context="com.main.justthetip.VersionActivity">
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Version 1.0"
-        android:layout_gravity="left"
-        android:textSize="16pt"
-        android:textStyle="bold"
-        android:textColor="@color/colorPrimaryDark5"
-        />
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:textColor="@color/colorPrimaryDark5"
-        android:textSize="14pt"
-        android:layout_gravity="center"
-        android:layout_marginLeft="-175dp"
-        android:layout_marginTop="55dp"
-        android:text="Brought to you courtesy of"
-        android:id="@+id/textView"
-         />
-
-
-
+        android:textSize="40dp"
+        android:text="Version 1.0"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark5"
-        android:textSize="14pt"
-        android:layout_gravity="center"
-        android:layout_marginLeft="-310dp"
-        android:layout_marginTop="-150dp"
-        android:text="Nuggets De Pollo"
-        />
-    <TextView
-        android:layout_width="168dp"
-        android:layout_height="47dp"
-        android:textColor="@color/colorPrimaryDark5"
-        android:textSize="12pt"
-        android:layout_marginLeft="-200dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="-100dp"
-        android:text="Andrew Koch"
-        android:id="@+id/Andrew" />
-
+        android:text="Nuggets De Pollo \u00A9"
+        android:textSize="50dp"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark5"
-        android:textSize="12pt"
-        android:layout_gravity="center"
-        android:layout_marginLeft="-160dp"
-        android:layout_marginTop="-70dp"
-        android:text="David Miller"
-        android:id="@+id/David" />
+        android:layout_marginTop="30dp"
+        android:textSize="30sp"
+        android:text="Andrew Koch\nDavid Miller\nWilmer Guerra" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@color/colorPrimaryDark5"
-        android:textSize="12pt"
-        android:layout_gravity="center"
-        android:layout_marginLeft="-155dp"
-        android:layout_marginTop="-35dp"
-        android:text="Wilmer Guerra"
-        android:id="@+id/Wilmer" />
-      </LinearLayout>
-
+</LinearLayout>
