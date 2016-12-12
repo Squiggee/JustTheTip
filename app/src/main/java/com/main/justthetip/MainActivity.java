@@ -21,9 +21,12 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
+    // Constants
     final int BAD_TIP = 5;
     final int GOOD_TIP = 10;
     final int GREAT_TIP = 20;
+
+    // Fields
     Button add;
     Button subtract;
     EditText people_Value;
@@ -173,19 +176,24 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     percentage_counter = Double.parseDouble(stripCharacter(percentage_value.getText().toString()));
                     bill_counter = Double.parseDouble(stripCharacter(bill_amount.getText().toString()));
                     people_counter = Integer.parseInt(stripCharacter(people_Value.getText().toString()));
-                }
-                catch (Exception e) {
+                } catch (Exception e) {
                     throw e;
                 }
 
                 if (!(percentage_counter == 0))
-                    percentageEq = (percentage_counter / 100) +1;
+                    percentageEq = (percentage_counter / 100) + 1;
 
                 grand_total = (bill_counter * percentageEq);
                 tipAmount.setText(money.getSymbol() + String.valueOf(String.format("%.2f", (grand_total - bill_counter))));
-                grandTotalView.setText(money.getSymbol() + String.valueOf(String.format("%.2f",grand_total)));
+                grandTotalView.setText(money.getSymbol() + String.valueOf(String.format("%.2f", grand_total)));
                 double eachPersonAmount = (grand_total == 0) ? 0 : grand_total / people_counter;
-                each_pay_view.setText(money.getSymbol() + String.valueOf(String.format("%.2f",eachPersonAmount)));
+                each_pay_view.setText(money.getSymbol() + String.valueOf(String.format("%.2f", eachPersonAmount)));
+
+                // Throw toasties
+                String toastyMessage = getToastyMessage(percentage_counter);
+                Toast toasty = Toast.makeText(getApplicationContext(), toastyMessage, Toast.LENGTH_SHORT);
+                toasty.show();
+
             }
         });
 
@@ -321,6 +329,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             stringToParse = "0";
         }
         return stringToParse;
+    }
+
+    private String getToastyMessage(double tipPercentage)
+    {
+        // want want to randomize message so either get 1 or 2
+        int randomizer = (int)Math.floor((Math.random() * 2) + 1);
+        String toastyMessage;
+        if (tipPercentage <= 5) {
+            toastyMessage = (randomizer == 2) ? getString(R.string.badTip2) : getString(R.string.badTip1);
+        } else if (tipPercentage > 5 && tipPercentage <= 10) {
+            toastyMessage = (randomizer == 2) ? getString(R.string.goodTip1) : getString(R.string.goodTip2);
+        } else {
+            toastyMessage = (randomizer == 2) ? getString(R.string.greatTip1) : getString(R.string.greatTip2);
+        }
+        return toastyMessage;
     }
 
 }
