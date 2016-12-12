@@ -333,16 +333,16 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     private String getToastyMessage(double tipPercentage)
     {
-        // want want to randomize message so either get 1 or 2
+        // want to randomize message so either get 1 or 2
         int randomizer = (int)Math.floor((Math.random() * 2) + 1);
         String toastyMessage;
-        if (tipPercentage <= 5) {
+        if (tipPercentage <= 5)
             toastyMessage = (randomizer == 2) ? getString(R.string.badTip2) : getString(R.string.badTip1);
-        } else if (tipPercentage > 5 && tipPercentage <= 10) {
+        else if (tipPercentage > 5 && tipPercentage <= 10)
             toastyMessage = (randomizer == 2) ? getString(R.string.goodTip1) : getString(R.string.goodTip2);
-        } else {
+        else
             toastyMessage = (randomizer == 2) ? getString(R.string.greatTip1) : getString(R.string.greatTip2);
-        }
+
         return toastyMessage;
     }
 
