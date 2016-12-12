@@ -21,6 +21,9 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
+    final int BAD_TIP = 5;
+    final int GOOD_TIP = 10;
+    final int GREAT_TIP = 20;
     Button add;
     Button subtract;
     EditText people_Value;
@@ -132,7 +135,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         badTip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                percentage_counter = 20;
+                percentage_counter = BAD_TIP;
                 percentage_value.setText("%" + String.valueOf(percentage_counter));
             }
         });
@@ -141,7 +144,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         goodTip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                percentage_counter = 25;
+                percentage_counter = GOOD_TIP;
                 percentage_value.setText("%" + String.valueOf(percentage_counter));
             }
         });
@@ -150,7 +153,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         greatTip.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                percentage_counter = 30;
+                percentage_counter = GREAT_TIP;
                 percentage_value.setText("%" + String.valueOf(percentage_counter));
             }
         });
@@ -285,8 +288,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id) {
-            case R.id.appearance:
-                break;
             case R.id.version:
                 Intent i = new Intent(this, VersionActivity.class);
                 startActivity(i);
