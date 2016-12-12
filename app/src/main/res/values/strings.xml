@@ -4,14 +4,21 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="badTip1">Did they spit in your food?</string>
-    <string name="badTip2">Was her belly touching your face</string>
-    <string name="badTip3">she didn't apologize for her smell</string>
-    <string name="goodTip1">good food must have made up for the poor service</string>
-    <string name="goodTip2">Just another meal but she is saving for college</string>
-    <string name="goodTip3">A for effort but F for that body</string>
-    <string name="greatTip1">she "accidentally" spilled water all over her</string>
-    <string name="greatTip2">Good job on getting her digits!</string>
-    <string name ="greatTip3">You're feeling generous today</string>
+    <string-array name="badTips">
+        <item>Did they spit in your food?</item>
+        <item>Was her belly touching your face</item>
+        <item>she didn\'t apologize for her smell</item>
+    </string-array>
 
+    <string-array name="goodTips">
+        <item>good food must have made up for the poor service</item>
+        <item>Just another meal but she is saving for college</item>
+        <item>A for effort but F for that body</item>
+    </string-array>
+
+    <string-array name="greatTips">
+        <item>she "accidentally" spilled water all over her</item>
+        <item>Good job on getting her digits!</item>
+        <item>You\'re feeling generous today</item>
+    </string-array>
 </resources>

@@ -1,6 +1,7 @@
 package com.main.justthetip;
 
 import android.content.Intent;
+import android.content.res.Resources;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -18,6 +19,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 import java.util.Currency;
 import java.util.Locale;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener
 {
@@ -338,15 +340,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
      */
     private String getToastyMessage(double tipPercentage)
     {
-        // want to randomize message so either get 1 or 2
-        int randomizer = (int)Math.floor((Math.random() * 2) + 1);
+        Resources res = getResources();
+        String[] badTipMessages = res.getStringArray(R.array.badTips);
+        String[] goodTipMessages = res.getStringArray(R.array.goodTips);
+        String[] greatTipMessages = res.getStringArray(R.array.greatTips);
         String toastyMessage;
+        Random randomizer = new Random();
+
         if (tipPercentage <= 5)
-            toastyMessage = (randomizer == 2) ? getString(R.string.badTip2) : getString(R.string.badTip1);
+            toastyMessage = badTipMessages[randomizer.nextInt(badTipMessages.length)];
         else if (tipPercentage > 5 && tipPercentage <= 10)
-            toastyMessage = (randomizer == 2) ? getString(R.string.goodTip1) : getString(R.string.goodTip2);
+            toastyMessage = goodTipMessages[randomizer.nextInt(goodTipMessages.length)];
         else
-            toastyMessage = (randomizer == 2) ? getString(R.string.greatTip1) : getString(R.string.greatTip2);
+            toastyMessage = greatTipMessages[randomizer.nextInt(greatTipMessages.length)];
 
         return toastyMessage;
     }
