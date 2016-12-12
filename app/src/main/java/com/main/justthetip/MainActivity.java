@@ -347,9 +347,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         String toastyMessage;
         Random randomizer = new Random();
 
-        if (tipPercentage <= 5)
+        if (tipPercentage <= BAD_TIP)
             toastyMessage = badTipMessages[randomizer.nextInt(badTipMessages.length)];
-        else if (tipPercentage > 5 && tipPercentage <= 10)
+        else if (tipPercentage > BAD_TIP && tipPercentage <= GOOD_TIP)
             toastyMessage = goodTipMessages[randomizer.nextInt(goodTipMessages.length)];
         else
             toastyMessage = greatTipMessages[randomizer.nextInt(greatTipMessages.length)];
