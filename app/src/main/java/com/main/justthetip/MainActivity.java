@@ -331,6 +331,11 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return stringToParse;
     }
 
+    /**
+     * Returns a random string based off tip percentage
+     * @param tipPercentage
+     * @return
+     */
     private String getToastyMessage(double tipPercentage)
     {
         // want to randomize message so either get 1 or 2
