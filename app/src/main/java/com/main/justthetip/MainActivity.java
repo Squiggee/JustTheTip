@@ -25,6 +25,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     Button subtract;
     EditText people_Value;
     EditText bill_amount;
+    EditText tipAmount;
     EditText each_pay_view;
     EditText grandTotalView;
     int people_counter;
@@ -156,6 +157,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         each_pay_view = (EditText) findViewById(R.id.each_person_edit);
         grandTotalView = (EditText) findViewById(R.id.grand_total_view);
+        tipAmount = (EditText) findViewById(R.id.tip_amount);
+
 
         calculate = (Button)findViewById(R.id.calculate);
         calculate.setOnClickListener(new View.OnClickListener() {
@@ -176,6 +179,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                     percentageEq = (percentage_counter / 100) +1;
 
                 grand_total = (bill_counter * percentageEq);
+                tipAmount.setText(money.getSymbol() + String.valueOf(String.format("%.2f", (grand_total - bill_counter))));
                 grandTotalView.setText(money.getSymbol() + String.valueOf(String.format("%.2f",grand_total)));
                 double eachPersonAmount = (grand_total == 0) ? 0 : grand_total / people_counter;
                 each_pay_view.setText(money.getSymbol() + String.valueOf(String.format("%.2f",eachPersonAmount)));
