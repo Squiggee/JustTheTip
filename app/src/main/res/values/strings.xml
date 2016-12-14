@@ -11,12 +11,14 @@
         <item>I guess your server doesn\'t have bills to pay..</item>
         <item>Your server had a unibrow didn't he?</item>
         <item>Mad because the charges went to LA</item>
+        <item>I guess little Johnny will have to wait an extra month for those shoes</item>
     </string-array>
 
     <string-array name="goodTips">
         <item>Accept</item>
         <item>Decent</item>
         <item>The server was aight</item>
+        <item>Nothing To Write Home About</item>
     </string-array>
 
     <string-array name="greatTips">
