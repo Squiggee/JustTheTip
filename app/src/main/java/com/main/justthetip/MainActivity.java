@@ -25,8 +25,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 {
     // Constants
     final int BAD_TIP = 5;
-    final int GOOD_TIP = 10;
-    final int GREAT_TIP = 20;
+    final int GOOD_TIP = 15;
+    final int GREAT_TIP = 25;
 
     // Fields
     Button add;

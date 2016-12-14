@@ -6,19 +6,18 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string-array name="badTips">
         <item>Did they spit in your food?</item>
-        <item>Was her belly touching your face</item>
-        <item>she didn\'t apologize for her smell</item>
+        <item>You found a fly in your soup, huh?</item>
+        <item>Hope your server doesn\'t live in Texas!</item>
+        <item>I guess your server doesn\'t have bills to pay..</item>
     </string-array>
 
     <string-array name="goodTips">
-        <item>good food must have made up for the poor service</item>
-        <item>Just another meal but she is saving for college</item>
-        <item>A for effort but F for that body</item>
+        <item></item>
     </string-array>
 
     <string-array name="greatTips">
-        <item>she "accidentally" spilled water all over her</item>
-        <item>Good job on getting her digits!</item>
+        <item>No one likes a suck up... well except your server</item>
+        <item>Good job on getting the digits!</item>
         <item>You\'re feeling generous today</item>
     </string-array>
 </resources>
