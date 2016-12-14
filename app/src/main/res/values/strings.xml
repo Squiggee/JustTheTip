@@ -9,15 +9,20 @@
         <item>You found a fly in your soup, huh?</item>
         <item>Hope your server doesn\'t live in Texas!</item>
         <item>I guess your server doesn\'t have bills to pay..</item>
+        <item>Your server had a unibrow didn't he?</item>
+        <item>Mad because the charges went to LA</item>
     </string-array>
 
     <string-array name="goodTips">
-        <item></item>
+        <item>Accept</item>
+        <item>Decent</item>
+        <item>The server was aight</item>
     </string-array>
 
     <string-array name="greatTips">
         <item>No one likes a suck up... well except your server</item>
         <item>Good job on getting the digits!</item>
         <item>You\'re feeling generous today</item>
+        <item>They need a pay raise!</item>
     </string-array>
 </resources>
